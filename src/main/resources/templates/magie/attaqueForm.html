@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle attaque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <style type="text/css">
+        .formAttaque{
+            margin-left : 5%;
+            margin-right : 5%;
+        }
+        #boutons{
+            display: block;
+            margin : auto;
+        }
+        .sousTitre{
+            font-size: 19px;
+            font-weight: bold;
+        }
+        .ui label{
+            background-color:#339;
+        }
+        .textarea{
+            resize : both;
+            overflow : auto;
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <h1>Creation d'une nouvelle attaque</h1>
+    <div class="formAttaque">
+        <fieldset>
+            <legend class="sousTitre">Parametres</legend>
+            <table>
+                <tr>
+                    <td>
+                        <div class="ui labeled input">
+                            <div class="ui label">Nom :</div>
+                            <input type="text">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui labeled input">
+                            <div class="ui label">Type de magie :</div>
+                            <input type="text">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui labeled input">
+                            <div class="ui label">Appartient a :</div>
+                            <input type="text">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <div class="ui labeled input">
+                <div class="ui label">Description :</div>
+                <textarea id="textarea" rows="10" cols="70" placeholder="Rentrer les details techniques"></textarea>
+            </div>
+        </fieldset>
+    </div>
+    <br>
+    <div id="boutons">
+        <button type="submit" name="action" value="Annuler" class="large negative ui button">Annuler</button>
+        <button type="submit" name="action" value="Creer" class="large positive ui button">Creer</button>
+    </div>
+</form>
+
+</body>
+</html>

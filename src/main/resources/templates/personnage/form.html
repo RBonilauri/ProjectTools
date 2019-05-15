@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau personnage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <style type="text/css">
+        .formPersonnage{
+            margin-left : 5%;
+            margin-right : 5%;
+        }
+        #boutons{
+            display: block;
+            margin : auto;
+        }
+        .sousTitre{
+            font-size: 19px;
+            font-weight: bold;
+        }
+        .ui label{
+            background-color:#339;
+        }
+    </style>
+</head>
+<body>
+
+<p th:text="${raf}"></p>
+
+<form action="#" th:action="@{/personnage/form}" th:object="${personnage}" method="post">
+    <h1>Creation d'un nouveau personnage</h1>
+    <div class="formPersonnage">
+        <div id="identite">
+            <fieldset>
+                <legend class="sousTitre"> Identite</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="ui labeled input">
+                                <div class="ui label">Prenom :</div>
+                                <input type="text" value="">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui labeled input">
+                                <div class="ui label">Nom :</div>
+                                <input type="text">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui right labeled input">
+                                <label for="age" class="ui label">Age : </label>
+                                <input type="number" min="0" id="age">
+                                <div class="ui basic label">ans</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="ui labeled input">
+                                <div class="ui label">Espece :</div>
+                                <input type="text">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui labeled input">
+                                <div class="ui label">Genre :</div>
+                                <select field="*{speed}">
+                                    <option th:each="genre : ${listeGenres}"
+                                            th:value="${genre}"
+                                            th:utext="${genre}"/>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui labeled input">
+                                <div class="ui label">Statut :</div>
+                                <select field="*{statut}">
+                                    <option th:each="statut : ${listeStatuts}"
+                                            th:value="${statut}"
+                                            th:utext="${statut}"/>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+        <br>
+        <div id="skill">
+            <fieldset>
+                <legend class="sousTitre"> Skills</legend>
+                <div class="ui labeled input">
+                    <div class="ui label">Arme(s) :</div>
+                    <input type="text">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Magie(s) :</div>
+                    <select field="*{magie.typeMagie}">
+                        <option th:each="tm : ${listeTypeMagies}"
+                                th:value="${tm}"
+                                th:utext="${tm}"/>
+                    </select>
+                </div>
+                <div hidden class="ui labeled input">
+                    <div class="ui label">Magie(s) :</div>
+                    <select field="*{magie.attribut}">
+                        <option th:each="attribut : ${listeAttributs}"
+                                th:value="${attribut}"
+                                th:utext="${attribut}"/>
+                    </select>
+                </div>
+            </fieldset>
+        </div>
+        <br>
+        <div id="narration">
+            <fieldset>
+                <legend class="sousTitre"> Narration</legend>
+                <div class="ui labeled input">
+                    <div class="ui label">Trait de caractere :</div>
+                    <input type="text">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Origine(s) :</div>
+                    <input type="text">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Clan :</div>
+                    <input type="text">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Statut narratif :</div>
+                    <input type="text">
+                </div>
+            </fieldset>
+        </div>
+        <br>
+        <div id="detail">
+            <fieldset>
+                <legend class="sousTitre"> Details</legend>
+                <div class="ui right labeled input">
+                    <label for="taille" class="ui label">Taille : </label>
+                    <input type="number" min="0" step="0.1" id="taille">
+                    <div class="ui basic label">m</div>
+                </div>
+                <div class="ui right labeled input">
+                    <label for="poids" class="ui label">Poids : </label>
+                    <input type="number" min="0" step="0.1" id="poids">
+                    <div class="ui basic label">kg</div>
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Date de naissance :</div>
+                    <input type="date">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Pseudonyme(s) :</div>
+                    <input type="text">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Affiliation :</div>
+                    <input type="text">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Passe temps :</div>
+                    <input type="text">
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">Nourriture preferee :</div>
+                    <input type="text">
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <br>
+    <div id="boutons">
+        <button type="submit" name="action" value="Annuler" class="large negative ui button">Annuler</button>
+        <button type="submit" name="action" value="Creer" class="large positive ui button">Creer</button>
+    </div>
+</form>
+
+<a th:href="@{/}"><-- Retour</a>
+</body>
+</html>

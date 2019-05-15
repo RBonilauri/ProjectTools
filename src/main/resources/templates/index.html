@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceuil</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            margin : 2%;
+        }
+        fieldset{
+            margin : 2%;
+        }
+        #titre{
+            font-sive : 30px;
+        }
+        #actions{
+            font-size: 18px;
+        }
+        .legend{
+            font-size: 27px;
+            font-weight: bold;
+        }
+        fieldset{
+            border:2px solid black;
+            -moz-border-radius:8px;
+            -webkit-border-radius:8px;
+            border-radius:8px;
+        }
+        .sousTitre{
+            font-size: 19px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1 id="titre">Acceuil</h1>
+<p>Nombre personnages : </p>
+<p>Nombre lieux : </p>
+<p>Nombre attaques : </p>
+<fieldset>
+    <legend class="legend">Actions</legend>
+    <div id="actions">
+        <ul>
+            <li>
+                <div class="sousTitre">Personnages :</div>
+                <ul>
+                    <li><a th:href="@{/personnage/list}">Liste des personnages</a></li>
+                    <li><a th:href="@{/personnage/form}">Ajouter un personnage</a></li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                <div class="sousTitre">Lieux :</div>
+                <ul>
+                    <li><a th:href="@{/lieu/list}">Liste des lieux</a></li>
+                    <li><a th:href="@{/lieu/form}">Ajouter un lieu</a></li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                <div class="sousTitre">Magies :</div>
+                <ul>
+                    <li><a th:href="@{/magie/list}">Liste des magies</a></li>
+                    <li><a th:href="@{/magie/form}">Ajouter une magie</a></li>
+                    <li><a th:href="@{/magie/attaqueForm}">Ajouter une attaque</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</fieldset>
+
+</body>
+</html>
